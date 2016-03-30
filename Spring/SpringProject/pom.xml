@@ -5,11 +5,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>my.spring.project</groupId>
-    <artifactId>educational</artifactId>
+    <artifactId>Spitter</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <java.version>1.8</java.version>
         <spring.version>4.2.3.RELEASE</spring.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <deploy.server.url>http://localhost:8080/manager/text</deploy.server.url>
+        <deploy.server.user>admin</deploy.server.user>
+        <deploy.server.password>password</deploy.server.password>
     </properties>
 
     <dependencies>
@@ -31,4 +39,30 @@
         </dependency>
     </dependencies>
 
+     <!-- Plugins -->
+    <profiles>
+        <profile>
+            <id>auto-deploy</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.tomcat.maven</groupId>
+                        <artifactId>tomcat7-maven-plugin</artifactId>
+                        <version>2.2</version>
+                        <configuration>
+                            <url>${deploy.server.url}</url>
+                            <server>TomcatServer</server>
+                            <username>${deploy.server.user}</username>
+                            <password>${deploy.server.password}</password>
+                            <path>/spitter</path>
+                            <failOnError>true</failOnError>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
