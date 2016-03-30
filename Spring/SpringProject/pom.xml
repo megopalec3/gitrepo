@@ -40,12 +40,12 @@
     </dependencies>
 
      <!-- Plugins -->
-    <profiles>
-        <profile>
-            <id>auto-deploy</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+    <!--<profiles>-->
+        <!--<profile>-->
+            <!--<id>auto-deploy</id>-->
+            <!--<activation>-->
+                <!--<activeByDefault>true</activeByDefault>-->
+            <!--</activation>-->
             <build>
                 <plugins>
                     <plugin>
@@ -57,12 +57,12 @@
                             <server>TomcatServer</server>
                             <username>${deploy.server.user}</username>
                             <password>${deploy.server.password}</password>
-                            <path>/spitter</path>
+                            <path>/webapps/spitter</path>
                             <failOnError>true</failOnError>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
-        </profile>
-    </profiles>
+        <!--</profile>-->
+    <!--</profiles>-->
 </project>
