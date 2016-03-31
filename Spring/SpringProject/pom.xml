@@ -37,32 +37,41 @@
             <artifactId>spring-aspects</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!--Database dependencies-->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+
     </dependencies>
 
-     <!-- Plugins -->
-    <!--<profiles>-->
-        <!--<profile>-->
-            <!--<id>auto-deploy</id>-->
-            <!--<activation>-->
-                <!--<activeByDefault>true</activeByDefault>-->
-            <!--</activation>-->
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.tomcat.maven</groupId>
-                        <artifactId>tomcat7-maven-plugin</artifactId>
-                        <version>2.2</version>
-                        <configuration>
-                            <url>${deploy.server.url}</url>
-                            <server>TomcatServer</server>
-                            <username>${deploy.server.user}</username>
-                            <password>${deploy.server.password}</password>
-                            <path>/webapps/spitter</path>
-                            <failOnError>true</failOnError>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        <!--</profile>-->
-    <!--</profiles>-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <url>${deploy.server.url}</url>
+                    <server>TomcatServer</server>
+                    <username>${deploy.server.user}</username>
+                    <password>${deploy.server.password}</password>
+                    <path>/spitter</path>
+                    <failOnError>true</failOnError>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
