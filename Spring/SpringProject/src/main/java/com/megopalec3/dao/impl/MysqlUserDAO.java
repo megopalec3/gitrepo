@@ -5,7 +5,9 @@ import com.megopalec3.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
+import org.springmodules.cache.annotations.CacheFlush;
 
 import javax.transaction.Transactional;
 
@@ -21,10 +23,12 @@ public class MysqlUserDAO implements UserDAO {
     }
 
     @Override
+    @Cacheable("spitterCache")
     public User getUserById(long id) {
         return (User) getCurrentSession().get(User.class, id);
     }
 
+    @CacheFlush(modelId = "spitterCache")
     private Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
