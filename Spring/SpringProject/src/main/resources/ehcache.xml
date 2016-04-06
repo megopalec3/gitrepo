@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+    <defaultCache
+            maxElementsInMemory="500"
+            overflowToDisk="false"
+            memoryStoreEvictionPolicy="LFU"
+            eternal="true" />
+    <cache name="spitterCache"
+           maxElementsInMemory="500"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LFU"
+           eternal="true"/>
+</ehcache>
