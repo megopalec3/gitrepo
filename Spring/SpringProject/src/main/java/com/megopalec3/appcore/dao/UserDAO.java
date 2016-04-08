@@ -1,6 +1,6 @@
-package com.megopalec3.dao;
+package com.megopalec3.appcore.dao;
 
-import com.megopalec3.entity.User;
+import com.megopalec3.appcore.entity.User;
 
 public interface UserDAO {
 

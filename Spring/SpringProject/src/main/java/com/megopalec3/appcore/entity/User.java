@@ -1,4 +1,4 @@
-package com.megopalec3.entity;
+package com.megopalec3.appcore.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

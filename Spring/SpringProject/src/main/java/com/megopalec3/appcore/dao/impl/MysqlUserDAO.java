@@ -1,7 +1,7 @@
-package com.megopalec3.dao.impl;
+package com.megopalec3.appcore.dao.impl;
 
-import com.megopalec3.dao.UserDAO;
-import com.megopalec3.entity.User;
+import com.megopalec3.appcore.dao.UserDAO;
+import com.megopalec3.appcore.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.megopalec3;
 
-import com.megopalec3.dao.UserDAO;
-import com.megopalec3.entity.User;
+import com.megopalec3.appcore.dao.UserDAO;
+import com.megopalec3.appcore.entity.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 //TODO: Remove class
