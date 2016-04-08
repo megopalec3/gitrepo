@@ -5,9 +5,9 @@ import com.megopalec3.appcore.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
-import org.springmodules.cache.annotations.CacheFlush;
 
 import javax.transaction.Transactional;
 
@@ -18,6 +18,8 @@ public class MysqlUserDAO implements UserDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    //TODO Just an example. Remove later
+    @CacheEvict(value = "spitterCache", allEntries=true)
     public void addUser(User user) {
         getCurrentSession().save(user);
     }
@@ -28,7 +30,6 @@ public class MysqlUserDAO implements UserDAO {
         return (User) getCurrentSession().get(User.class, id);
     }
 
-    @CacheFlush(modelId = "spitterCache")
     private Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }

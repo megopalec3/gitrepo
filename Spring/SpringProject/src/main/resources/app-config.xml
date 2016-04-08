@@ -9,25 +9,4 @@
 
     <context:component-scan base-package="com.megopalec3.config"/>
 
-    <!--<========================================================================>-->
-                                <!--Cache Config-->
-    <!--<========================================================================>-->
-
-    <!--<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">-->
-        <!--<property name="cacheManager" ref="ehcache"/>-->
-    <!--</bean>-->
-    <!--<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">-->
-        <!--<property name="configLocation" value="classpath:ehcache.xml"/>-->
-        <!--<property name="shared" value="true"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="propertyConfigurer"-->
-          <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
-        <!--<property name="locations">-->
-            <!--<list>-->
-                <!--<value>properties/database.properties</value>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
-
 </beans>

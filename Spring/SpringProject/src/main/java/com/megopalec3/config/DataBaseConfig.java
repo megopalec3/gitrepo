@@ -9,10 +9,12 @@ import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.Properties;
 
 @Configuration
+@EnableTransactionManagement
 @PropertySource("properties/database.properties")
 public class DataBaseConfig {
     private static final String PROPERTY_NAME_DRIVER_CLASSPATH = "database.driver.classpath";
