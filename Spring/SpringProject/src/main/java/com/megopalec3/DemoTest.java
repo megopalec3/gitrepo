@@ -1,6 +1,6 @@
 package com.megopalec3;
 
-import com.megopalec3.appcore.dao.UserDAO;
+import com.megopalec3.appcore.dao.UserDao;
 import com.megopalec3.appcore.entity.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -9,14 +9,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class DemoTest {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("app-config.xml");
-        UserDAO userDAO = (UserDAO) context.getBean("userDao");
-        for (int i = 0; i < 5; i++) {
-            User user = userDAO.getUserById(1);
-            System.out.println("ID:" + user.getId());
-            System.out.println("NAME:" + user.getUserName());
-            System.out.println("PASS:" + user.getPassword());
-        }
-        userDAO.addUser(new User().setUserName("zxc").setPassword("zxc"));
-        User user = userDAO.getUserById(1);
+        System.out.println(context.getBean("sessionFactory"));
+        UserDao userDao = (UserDao) context.getBean("userDao");
+        //userDAO.addUser(new MysqlUser().setUserName("zxc").setPassword("zxc"));
+        User user = userDao.getUserById(1);
+        System.out.println(user.getId() + user.getUserName() + user.getPassword());
     }
 }

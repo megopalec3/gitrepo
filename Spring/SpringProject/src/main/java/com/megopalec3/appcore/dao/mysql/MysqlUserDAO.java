@@ -1,7 +1,7 @@
-package com.megopalec3.appcore.dao.impl;
+package com.megopalec3.appcore.dao.mysql;
 
-import com.megopalec3.appcore.dao.UserDAO;
-import com.megopalec3.appcore.entity.User;
+import com.megopalec3.appcore.dao.UserDao;
+import com.megopalec3.appcore.entity.mysql.MysqlUser;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,21 +13,21 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public class MysqlUserDAO implements UserDAO {
+public class MysqlUserDao implements UserDao {
 
     @Autowired
     private SessionFactory sessionFactory;
 
     //TODO Just an example. Remove later
     @CacheEvict(value = "spitterCache", allEntries=true)
-    public void addUser(User user) {
+    public void addUser(MysqlUser user) {
         getCurrentSession().save(user);
     }
 
     @Override
     @Cacheable("spitterCache")
-    public User getUserById(long id) {
-        return (User) getCurrentSession().get(User.class, id);
+    public MysqlUser getUserById(long id) {
+        return (MysqlUser) getCurrentSession().get(MysqlUser.class, id);
     }
 
     private Session getCurrentSession() {
