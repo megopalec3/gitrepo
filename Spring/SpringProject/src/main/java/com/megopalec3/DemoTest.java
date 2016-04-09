@@ -9,7 +9,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class DemoTest {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("app-config.xml");
-        System.out.println(context.getBean("sessionFactory"));
         UserDao userDao = (UserDao) context.getBean("userDao");
         //userDAO.addUser(new MysqlUser().setUserName("zxc").setPassword("zxc"));
         User user = userDao.getUserById(1);
