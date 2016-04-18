@@ -3,6 +3,7 @@ package com.megopalec3.config;
 import com.megopalec3.appcore.dao.UserDao;
 import com.megopalec3.appcore.dao.factory.DaoFactory;
 import com.megopalec3.appcore.dao.factory.mysql.MysqlDaoFactory;
+import com.megopalec3.appcore.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +28,11 @@ public class CustomBeanConfigurator {
     @Bean
     public UserDao userDao() {
         return daoFactory().getUserDao();
+    }
+
+    @Bean
+    public UserService userService(){
+        return new UserService();
     }
 
     //TODO: refactor finding DAOFactory by type

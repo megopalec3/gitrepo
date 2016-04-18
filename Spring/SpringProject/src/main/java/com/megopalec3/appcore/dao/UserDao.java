@@ -1,10 +1,10 @@
 package com.megopalec3.appcore.dao;
 
-import com.megopalec3.appcore.entity.mysql.MysqlUser;
+import com.megopalec3.appcore.entity.User;
 
 public interface UserDao {
 
-    void addUser(MysqlUser user);
+    void addUser(User user);
 
-    MysqlUser getUserById(long id);
+    User getUserById(long id);
 }

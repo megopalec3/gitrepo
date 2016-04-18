@@ -2,15 +2,10 @@ package com.megopalec3.appcore.entity;
 
 public interface User {
 
-    public String getPassword();
+    String getPassword();
 
-    public User setPassword(String password);
+    long getId();
 
-    public long getId();
+    String getUserName();
 
-    public User setId(long id);
-
-    public String getUserName();
-
-    public User setUserName(String userName);
 }

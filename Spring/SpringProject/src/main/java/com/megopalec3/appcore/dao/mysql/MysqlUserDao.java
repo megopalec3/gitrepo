@@ -1,6 +1,7 @@
 package com.megopalec3.appcore.dao.mysql;
 
 import com.megopalec3.appcore.dao.UserDao;
+import com.megopalec3.appcore.entity.User;
 import com.megopalec3.appcore.entity.mysql.MysqlUser;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,7 +21,7 @@ public class MysqlUserDao implements UserDao {
 
     //TODO Just an example. Remove later
     @CacheEvict(value = "spitterCache", allEntries=true)
-    public void addUser(MysqlUser user) {
+    public void addUser(User user) {
         getCurrentSession().save(user);
     }
 
