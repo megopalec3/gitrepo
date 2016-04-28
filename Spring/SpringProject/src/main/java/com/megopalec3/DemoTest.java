@@ -11,7 +11,7 @@ public class DemoTest {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("app-config.xml");
         UserService userService = (UserService) context.getBean("userService");
-        userService.addUser(new MysqlUser().setUserName("Name").setPassword("Pass"));
+        //userService.addUser(new MysqlUser().setUserName("Name").setPassword("Pass"));
         User user = userService.getUserById(1);
         System.out.println(user.getId() + user.getUserName() + user.getPassword());
     }

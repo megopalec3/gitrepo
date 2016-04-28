@@ -4,7 +4,9 @@ package com.megopalec3.appcore.services;
 import com.megopalec3.appcore.dao.UserDao;
 import com.megopalec3.appcore.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserService {
 
     @Autowired
