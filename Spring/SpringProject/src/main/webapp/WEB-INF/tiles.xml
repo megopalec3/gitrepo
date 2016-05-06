@@ -1,0 +1,16 @@
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <!-- Main template -->
+    <definition name="main.template"
+                template="/WEB-INF/views/main.jsp">
+        <put-attribute name="header" value="" />
+        <put-attribute name="footer" value="" />
+        <put-attribute name="stylecss" value=""/>
+        <put-attribute name="scriptjs" value=""/>
+    </definition>
+
+</tiles-definitions>

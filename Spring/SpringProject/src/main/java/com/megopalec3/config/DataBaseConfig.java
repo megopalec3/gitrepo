@@ -15,7 +15,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource("properties/database.properties")
+@PropertySource("classpath:properties/database.properties")
 public class DataBaseConfig {
     private static final String PROPERTY_NAME_DRIVER_CLASSPATH = "database.driver.classpath";
     private static final String PROPERTY_NAME_DATABASE_URL = "database.url";

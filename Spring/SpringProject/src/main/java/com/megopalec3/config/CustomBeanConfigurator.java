@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@PropertySource("properties/common.properties")
+@PropertySource("classpath:properties/common.properties")
 public class CustomBeanConfigurator {
     private static final String PROPERTY_NAME_DATA_STORAGE_TYPE = "datastorage.type";
     private static final String DAO_TYPE_MYSQL = "mysql";

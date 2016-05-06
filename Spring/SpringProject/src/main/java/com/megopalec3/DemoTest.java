@@ -1,7 +1,6 @@
 package com.megopalec3;
 
 import com.megopalec3.appcore.entity.User;
-import com.megopalec3.appcore.entity.mysql.MysqlUser;
 import com.megopalec3.appcore.services.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

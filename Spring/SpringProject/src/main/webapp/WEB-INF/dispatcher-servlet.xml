@@ -1,30 +1,36 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
-       http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <mvc:resources mapping="/resources/**" location="/resources/script/" />
     <mvc:annotation-driven/>
 
     <context:component-scan base-package="com.megopalec3.appcore.controller"/>
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/WEB-INF/views/"/>
-        <property name="suffix" value=".jsp"/>
+    <bean id="tilesViewResolver"
+                class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass">
+            <value>
+                org.springframework.web.servlet.view.tiles3.TilesView
+            </value>
+        </property>
+        <property name="order" value="0"/>
     </bean>
 
-    <!--<bean class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"/>-->
-
-    <!--<bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">-->
-        <!--<property name="definitions">-->
-            <!--<list>-->
-                <!--<value>/WEB-INF/views/**/views.xml</value>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles.xml</value>
+                <value>/WEB-INF/views/**/views.xml</value>
+            </list>
+        </property>
+    </bean>
 </beans>
