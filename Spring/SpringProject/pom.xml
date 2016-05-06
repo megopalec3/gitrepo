@@ -18,6 +18,7 @@
         <deploy.server.url>http://localhost:8080/manager/text</deploy.server.url>
         <deploy.server.user>admin</deploy.server.user>
         <deploy.server.password>password</deploy.server.password>
+        <deploy.skipCheckstyle>false</deploy.skipCheckstyle>
     </properties>
 
     <dependencies>
@@ -122,6 +123,32 @@
                     <failOnError>true</failOnError>
                 </configuration>
             </plugin>
+
+            <!--UNCOMMENT FOR CHECKSTYLE PLUGIN-->
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
+                <!--<version>2.17</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>validate</id>-->
+                        <!--<phase>validate</phase>-->
+                        <!--<configuration>-->
+                            <!--<configLocation>checkstyle.xml</configLocation>-->
+                            <!--<encoding>UTF-8</encoding>-->
+                            <!--<consoleOutput>true</consoleOutput>-->
+                            <!--<failsOnError>true</failsOnError>-->
+                            <!--<includeTestSourceDirectory>true</includeTestSourceDirectory>-->
+                            <!--<maxAllowedViolations>0</maxAllowedViolations>-->
+                            <!--<violationSeverity>warning</violationSeverity>-->
+                        <!--</configuration>-->
+                        <!--<goals>-->
+                            <!--<goal>check</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>
