@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<html xmlns:tiles="http://tiles.apache.org/tags-tiles">
+<html>
     <head>
         <meta charset="UTF-8">
         <title><tiles:insertAttribute name="title"/></title>
