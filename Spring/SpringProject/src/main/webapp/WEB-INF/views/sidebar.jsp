@@ -1,16 +1,9 @@
-<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
-<sf:form method="POST" action="/spitter/new/user" modelAttribute="user">
-        <table>
-            <tr>
-                <td><sf:label path="userName">Name:</sf:label></td>
-                <td><sf:input path="userName"/></td>
-            </tr>
-            <tr>
-                <td><sf:label path="password">Password:</sf:label></td>
-                <td><sf:input path="password"/></td>
-            </tr>
-            <tr>
-                <td><input type="submit" value="Submit"/></td>
-            </tr>
-        </table>
-</sf:form>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:url var="submitUrl"  value="/user/new" />
+<form method="POST" action="${submitUrl}" modelAttribute="user">
+    <label for="userName">Name:</label>
+    <input name="userName" id="userName"/>
+    <label for="password">Password:</label>
+    <input name="password" id="password"/>
+    <input type="submit" value="Submit"/>
+</form>
