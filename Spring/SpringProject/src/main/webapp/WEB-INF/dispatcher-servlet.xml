@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <mvc:resources mapping="/resources/**" location="/resources/script/" />
+    <mvc:resources mapping="/css/**" location="/WEB-INF/resources/script/css/" />
     <mvc:annotation-driven/>
 
     <context:component-scan base-package="com.megopalec3.appcore.controller"/>

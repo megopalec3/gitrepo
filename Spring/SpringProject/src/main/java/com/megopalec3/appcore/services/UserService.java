@@ -16,8 +16,8 @@ public class UserService {
 
     //TODO Just an example. Remove later
     @CacheEvict(value = "spitterCache", allEntries=true)
-    public void addUser(User user) {
-        userDao.addUser(user);
+    public User addUser(User user) {
+        return userDao.addUser(user);
     }
     @Cacheable("spitterCache")
     public User getUserById(long id) {

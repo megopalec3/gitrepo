@@ -9,7 +9,8 @@
                 template="/WEB-INF/views/main.jsp">
         <put-attribute name="header" value="" />
         <put-attribute name="footer" value="" />
-        <put-attribute name="stylecss" value=""/>
+        <put-attribute name="sidebar" value="/WEB-INF/views/sidebar.jsp" />
+        <put-attribute name="stylecss" value="/WEB-INF/views/maincss.jsp"/>
         <put-attribute name="scriptjs" value=""/>
     </definition>
 

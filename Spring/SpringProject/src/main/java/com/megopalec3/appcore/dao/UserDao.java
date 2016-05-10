@@ -4,7 +4,7 @@ import com.megopalec3.appcore.entity.User;
 
 public interface UserDao {
 
-    void addUser(User user);
+    User addUser(User user);
 
     User getUserById(long id);
 }

@@ -7,10 +7,18 @@
         <tiles:insertAttribute name="stylecss" />
     </head>
     <body>
-        MAIN!
-        <tiles:insertAttribute name="header" />
-        <tiles:insertAttribute name="content" />
-        <tiles:insertAttribute name="footer" />
+        <div class="header_wrapper">
+            <tiles:insertAttribute name="header" />
+        </div>
+        <div class="content_wrapper">
+            <tiles:insertAttribute name="content" />
+        </div>
+        <div class="sidebar_wrapper">
+            <tiles:insertAttribute name="sidebar" />
+        </div>
+        <div class="footer_wrapper">
+            <tiles:insertAttribute name="footer" />
+        </div>
         <tiles:insertAttribute name="scriptjs" />
     </body>
 </html>

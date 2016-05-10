@@ -1,0 +1,9 @@
+.content_wrapper {
+    display: inline-block;
+}
+
+.sidebar_wrapper {
+    display: inline-block;
+    float: right;
+    width: 300px;
+}

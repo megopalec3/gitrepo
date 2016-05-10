@@ -17,8 +17,9 @@ public class MysqlUserDao implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public void addUser(User user) {
+    public MysqlUser addUser(User user) {
         getCurrentSession().save(user);
+        return (MysqlUser) user;
     }
 
     @Override
