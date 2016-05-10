@@ -26,9 +26,9 @@ public class UserController {
     public String saveNewUser(@RequestParam(name = "userName") String name,
                               @RequestParam(name = "password") String password,
                               Model model) {
-        //TODO: Refactor this
+        //TODO: Refactor this (Hardcode of MysqlUser)
         User user = userService.addUser(new MysqlUser().setUserName(name).setPassword(password));
-        model.addAttribute("user", user);
-        return "home";
+        //TODO Just an example refactor later
+        return "redirect:/user/" + user.getId();
     }
 }
