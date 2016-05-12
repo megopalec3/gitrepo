@@ -2,6 +2,7 @@ package com.megopalec3.config;
 
 import com.megopalec3.appcore.dao.UserDao;
 import com.megopalec3.appcore.dao.factory.DaoFactory;
+import com.megopalec3.appcore.dao.factory.UserFactory;
 import com.megopalec3.appcore.dao.factory.mysql.MysqlDaoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,6 +23,11 @@ public class CustomBeanConfigurator {
     public DaoFactory daoFactory() {
         String storageType = env.getRequiredProperty(PROPERTY_NAME_DATA_STORAGE_TYPE);
         return  getDaoFactoryByType(storageType);
+    }
+
+    @Bean
+    public UserFactory userFactory() {
+        return daoFactory().getUserFactory();
     }
 
     @Bean

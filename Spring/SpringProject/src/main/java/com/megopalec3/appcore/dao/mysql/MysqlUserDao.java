@@ -1,7 +1,6 @@
 package com.megopalec3.appcore.dao.mysql;
 
 import com.megopalec3.appcore.dao.UserDao;
-import com.megopalec3.appcore.entity.User;
 import com.megopalec3.appcore.entity.mysql.MysqlUser;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,12 +11,12 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public class MysqlUserDao implements UserDao {
+public class MysqlUserDao implements UserDao <MysqlUser>{
 
     @Autowired
     private SessionFactory sessionFactory;
 
-    public MysqlUser addUser(User user) {
+    public MysqlUser addUser(MysqlUser user) {
         getCurrentSession().save(user);
         return (MysqlUser) user;
     }

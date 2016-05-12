@@ -4,10 +4,13 @@
 
 <tiles-definitions>
 
-    <!--Home Page Template -->
     <definition name="home" extends="main.template">
         <put-attribute name="title" value="Home"/>
         <put-attribute name="content" value="/WEB-INF/views/home.jsp" />
     </definition>
 
+    <definition name="registration" extends="main.template">
+        <put-attribute name="title" value="User Registration"/>
+        <put-attribute name="content" value="/WEB-INF/views/user_registration.jsp" />
+    </definition>
 </tiles-definitions>

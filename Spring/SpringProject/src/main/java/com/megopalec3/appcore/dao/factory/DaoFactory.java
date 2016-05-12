@@ -4,5 +4,7 @@ import com.megopalec3.appcore.dao.UserDao;
 
 public interface DaoFactory {
 
-    public UserDao getUserDao();
+    UserDao getUserDao();
+
+    UserFactory getUserFactory();
 }

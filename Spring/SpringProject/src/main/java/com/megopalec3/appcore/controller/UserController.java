@@ -1,7 +1,7 @@
 package com.megopalec3.appcore.controller;
 
 import com.megopalec3.appcore.entity.User;
-import com.megopalec3.appcore.entity.mysql.MysqlUser;
+import com.megopalec3.appcore.entity.UserClientView;
 import com.megopalec3.appcore.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,12 +23,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String saveNewUser(@RequestParam(name = "userName") String name,
-                              @RequestParam(name = "password") String password,
-                              Model model) {
-        //TODO: Refactor this (Hardcode of MysqlUser)
-        User user = userService.addUser(new MysqlUser().setUserName(name).setPassword(password));
-        //TODO Just an example refactor later
-        return "redirect:/user/" + user.getId();
+    public String saveNewUser(UserClientView userClientView) {
+        User createdUser = userService.addUser(userClientView);
+        return "redirect:/user/" + createdUser.getId();
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String showRegistrationView(Model model) {
+        model.addAttribute("user", new UserClientView());
+        return "registration";
     }
 }

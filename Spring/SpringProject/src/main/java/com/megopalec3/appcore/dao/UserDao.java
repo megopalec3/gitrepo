@@ -2,9 +2,9 @@ package com.megopalec3.appcore.dao;
 
 import com.megopalec3.appcore.entity.User;
 
-public interface UserDao {
+public interface UserDao <E extends User>{
 
-    User addUser(User user);
+    E addUser(E user);
 
-    User getUserById(long id);
+    E getUserById(long id);
 }
