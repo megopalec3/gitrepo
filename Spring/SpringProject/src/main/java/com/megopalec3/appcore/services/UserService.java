@@ -1,6 +1,5 @@
 package com.megopalec3.appcore.services;
 
-
 import com.megopalec3.appcore.dao.UserDao;
 import com.megopalec3.appcore.dao.factory.UserFactory;
 import com.megopalec3.appcore.entity.User;
@@ -16,7 +15,7 @@ public class UserService {
     private UserDao userDao;
 
     @Autowired
-    UserFactory userFactory;
+    private UserFactory userFactory;
 
     //TODO Just an example. Remove later
     @CacheEvict(value = "spitterCache", allEntries=true)
