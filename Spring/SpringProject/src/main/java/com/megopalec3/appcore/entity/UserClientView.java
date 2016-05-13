@@ -1,5 +1,7 @@
 package com.megopalec3.appcore.entity;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -13,6 +15,8 @@ public class UserClientView implements User{
 
     @Size(min=6, max=20, message="The password must be between 6 and 20 characters long.")
     private String password;
+
+    private MultipartFile image;
 
     @Override
     public String getUserName() {
@@ -44,6 +48,15 @@ public class UserClientView implements User{
     @Override
     public UserClientView setPassword(String password) {
         this.password = password;
+        return this;
+    }
+
+    public MultipartFile getImage() {
+        return image;
+    }
+
+    public UserClientView setImage(MultipartFile image) {
+        this.image = image;
         return this;
     }
 }

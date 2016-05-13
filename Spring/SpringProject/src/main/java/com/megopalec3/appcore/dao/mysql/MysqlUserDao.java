@@ -18,7 +18,7 @@ public class MysqlUserDao implements UserDao <MysqlUser>{
 
     public MysqlUser addUser(MysqlUser user) {
         getCurrentSession().save(user);
-        return (MysqlUser) user;
+        return user;
     }
 
     @Override
