@@ -25,7 +25,7 @@ public class UserController {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
         if (user != null) {
-            String avatarPath = userService.getAvatarPath(user);
+            String avatarPath = userService.getAvatarContextPath(user);
             model.addAttribute("avapath", avatarPath);
         }
         return "home";
@@ -59,7 +59,8 @@ public class UserController {
             try {
                 userService.saveUserAvatar(image, user);
             } catch (ImageUploadException e) {
-                //TODO: Do something
+                System.err.println("Error");
+                //TODO: Do something (Logging)
             }
         }
     }
