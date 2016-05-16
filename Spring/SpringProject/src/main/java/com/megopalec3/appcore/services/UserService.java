@@ -6,8 +6,10 @@ import com.megopalec3.appcore.entity.User;
 import com.megopalec3.appcore.exceptions.ImageUploadException;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,13 +18,12 @@ import java.io.File;
 import java.io.IOException;
 
 @Component
+@PropertySource("classpath:properties/common.properties")
 public class UserService {
-    private static final String USER_AVATAR_PATH = "/img/useravatar/";
-    private static final String USER_AVATAR_REAL_PATH = "/WEB-INF/resources/image/useravatar/";
+    private static final String USER_AVATAR_PATH = "/useravatar/";
 
     @Autowired
     public UserService(ServletContext servletContext) {
-        servletContextRealPath = servletContext.getRealPath(USER_AVATAR_REAL_PATH);
         servletContextPath = servletContext.getContextPath();
     }
 
@@ -33,7 +34,9 @@ public class UserService {
     private UserFactory userFactory;
 
     private String servletContextPath;
-    private String servletContextRealPath;
+
+    @Value("${image.useravatar.filesystempath}")
+    private String userAvatarRealPath;
 
     //TODO Just an example. Remove later
     @CacheEvict(value = "spitterCache", allEntries = true)
@@ -48,7 +51,6 @@ public class UserService {
     }
 
     //TODO: Refactor to save images in Amazon S3???
-    //TODO Currently avatars stores in project folder. So all avas are remover after redeploy. ( Solution: Store avas in amazon, store avas outside the project folder, Deploy only diffs)
     public void saveUserAvatar(MultipartFile image, User user) throws ImageUploadException {
         validateImage(image);
         try {
@@ -72,6 +74,6 @@ public class UserService {
     }
 
     private String getAvatarRealPath(User user) {
-        return servletContextRealPath + user.getId() + ".jpg";
+        return userAvatarRealPath + user.getId() + ".jpg";
     }
 }

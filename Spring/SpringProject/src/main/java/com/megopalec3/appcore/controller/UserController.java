@@ -35,9 +35,9 @@ public class UserController {
     public String saveNewUser(@ModelAttribute("user")
                               @Valid
                               UserClientView userClientView,
+                              BindingResult bindingResult,
                               @RequestParam(value = "image", required = false)
                               MultipartFile image,
-                              BindingResult bindingResult,
                               Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("user", userClientView);
