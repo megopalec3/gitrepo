@@ -59,7 +59,6 @@ public class UserController {
             try {
                 userService.saveUserAvatar(image, user);
             } catch (ImageUploadException e) {
-                System.err.println("Error");
                 //TODO: Do something (Logging)
             }
         }
